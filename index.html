@@ -3,10 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="src/style.css" />
+
+    <!-- LIBRERIAS GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>guerra_coc</title>
   </head>
-  <body>
-    <h1 class="text-red-600 font-bold text-4xl">guerra_coc</h1>
+
+  <body class="bg-black">
+    <!-- INICIO -->
+     <div class="h-screen flex items-center justify-center bg-slate-800 text-white font-bold">
+        <h1 class="text-3xl" >Scrollea para aprender a atacar en Clash of Clans ↓</h1>
+     </div>
+
+     <!-- SECCION DE CARGA -->
+     <section class="revelar_loading_screen flex h-screen m-0 relative">
+
+        <div class="w-full h-full" id="revelar_loading_screen">
+          <img class="w-full h-full object-cover" src="public/loading_screen.png" alt="loading screen">
+        </div>
+
+        <!-- CAJA1 ARRIBA DE IMAGEN -->
+        <div id="caja1" class="absolute flex top-10 left-0 w-full justify-center">
+          <p class="text-white text-4xl font-bold opacity-0 border-2 border-yellow-500 p-6 rounded-lg">
+            Como atacar en las guerras de clanes
+          </p>
+        </div>
+     </section>
+
+
+
+   <script>
+      
+      // Libreria de scroll
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Linea de tiempo para el loading screen
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".revelar_loading_screen",
+          start: "top top",      // La animación empieza cuando el section llege al top del navegador (arriba del todo)
+          end: "+=150%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
+          scrub: 1,              // Hace que la animación se sincronice con el scroll (1 segundo de retraso para suavizar) 
+          pin: true,             // Bloquea el section, solo se ejecutan las animaciones dentro de el mientras se va scrolleando
+          markers: false
+        }
+      });
+
+  // Animacion para revelar la imagen
+  tl.from("#revelar_loading_screen", {
+    opacity: 0,
+    duration: 1
+  });
+
+  // Animacion para mostrar la caja de texto
+  tl.to("#caja1 p", {
+    opacity: 1,
+    y: -20, // Sube un poquito
+    duration: 1
+  }); 
+</script>
+
   </body>
 </html>
