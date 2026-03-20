@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>guerra_coc</title>
-    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-BcngCNeV.css">
+    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-BzB5-EvF.css">
   </head>
 
   <body class="bg-black">
@@ -27,13 +27,35 @@
 
         <!-- CAJA1 ARRIBA DE IMAGEN -->
         <div id="caja1" class="absolute flex top-10 left-0 w-full justify-center">
-          <p class="text-white text-4xl font-bold opacity-0 border-2 border-yellow-500 p-6 rounded-lg">
-            Como atacar en las guerras de clanes
-          </p>
+          
+          <!-- Añadí un contenedor para meter el título y los autores -->
+          <div class="flex flex-col items-center">
+
+            <p class="text-white text-4xl font-bold opacity-0 border-2 border-yellow-500 p-6 rounded-lg">
+              Como atacar en las guerras de clanes
+            </p>
+
+            <!-- NUESTROS NOMBRES -->
+            <div id="autores" class="mt-6 text-center opacity-0">
+              <p class="text-yellow-300 font-semibold text-xl">Hecho por:</p>
+              <p class="text-white text-2xl font-bold">Adrián Jiménez Llorens</p>
+              <p class="text-white text-2xl font-bold">Saúl Martín Voisin</p>
+            </div>
+
+          </div>
         </div>
+
+        <!-- IMAGEN IZQUIERDA -->
+        <div id="imagen-izquierda" class="absolute bottom-0 left-8 opacity-0">
+          <img src="/guerra_coc/assets/barbaro-CvbyBoLU.png" class="h-112.5 object-contain">
+        </div>
+
+        <!-- IMAGEN DERECHA -->
+        <div id="imagen-derecha" class="absolute bottom-0 right-8 opacity-0">
+          <img src="/guerra_coc/assets/arquera-Dky00ue9.png" class="h-112.5 object-contain">
+        </div>
+
      </section>
-
-
 
    <script>
       
@@ -64,6 +86,27 @@
     y: -20, // Sube un poquito
     duration: 1
   }); 
+
+  // Animacion de nuestros nombres
+  tl.to("#autores", {
+    opacity: 1,
+    y: -10,
+    duration: 0.8
+  });
+
+  // Animaciones de las imagenes laterales
+  tl.to("#imagen-izquierda", {
+    opacity: 1,
+    x: 20,
+    duration: 0.8
+  });
+
+  tl.to("#imagen-derecha", {
+    opacity: 1,
+    x: -20,
+    duration: 0.8
+  });
+
 </script>
 
   </body>
