@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>guerra_coc</title>
-    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-BzB5-EvF.css">
+    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-BKF9b-tE.css">
   </head>
 
   <body class="bg-black">
@@ -45,20 +45,62 @@
           </div>
         </div>
 
-        <!-- IMAGEN IZQUIERDA -->
+     </section>
+
+     <section class="pantalla2 flex h-screen m-0 relative">
+
+      <div class="w-full h-full" id="aldea">
+          <img class="w-full h-full object-cover" src="/guerra_coc/assets/aldea-DSoGcplf.jpeg" alt="aldea">
+      </div>
+
+              <!-- IMAGEN BARBARO IZQUIERDA -->
         <div id="imagen-izquierda" class="absolute bottom-0 left-8 opacity-0">
           <img src="/guerra_coc/assets/barbaro-CvbyBoLU.png" class="h-112.5 object-contain">
         </div>
 
-        <!-- IMAGEN DERECHA -->
+        <!-- IMAGEN ARQUERA DERECHA -->
         <div id="imagen-derecha" class="absolute bottom-0 right-8 opacity-0">
           <img src="/guerra_coc/assets/arquera-Dky00ue9.png" class="h-112.5 object-contain">
         </div>
 
-     </section>
+
+        <!-- BOCADILLO BARBARO -->
+        <div id="bocadillo-barbaro" class="absolute bottom-120 left-24 opacity-0 scale-0 bg-white text-black p-4 rounded-2xl border-4 border-blue-500 max-w-xs shadow-xl">
+          <p id="texto-barbaro" class="font-bold text-lg">¡Mira que aldea mas horrible!, hay que enseñar a Dino64 a cómo jugar</p>
+          <div class="absolute -bottom-4 left-6 w-0 h-0 border-l-15 border-l-transparent border-r-15 border-r-transparent border-t-20 border-t-blue-500"></div>
+        </div>
+
+        <!-- BOCADILLO ARQUERA -->
+        <div id="bocadillo-arquera" class="absolute bottom-120 right-24 opacity-0 scale-0 bg-white text-black p-4 rounded-2xl border-4 border-pink-500 max-w-xs shadow-xl">
+          <p id="texto-arquera" class="font-bold text-lg">Es verdad, para empezar hay que modificar el ejercito.</p>
+          <div class="absolute -bottom-4 right-6 w-0 h-0 border-l-15 border-l-transparent border-r-15 border-r-transparent border-t-20 border-t-pink-500"></div>
+        </div>
+
+    </section>
 
    <script>
       
+      // Array de conversaciones
+      const conversaciones = [
+        {
+          personaje: "barbaro",
+          texto: "¡Mira que aldea mas horrible!, hay que enseñar a Dino64 a cómo jugar"
+        },
+        {
+          personaje: "arquera",
+          texto: "Es verdad, para empezar hay que modificar el ejercito."
+        },
+        {
+          personaje: "barbaro",
+          texto: "¿Pero que ejercito es el más recomendado para atacar?"
+        },
+        {
+          personaje: "arquera",
+          texto: "El ejército más recomendado es jugar full dragones eléctricos"
+        }
+      ]
+
+
       // Libreria de scroll
       gsap.registerPlugin(ScrollTrigger);
 
@@ -67,10 +109,11 @@
         scrollTrigger: {
           trigger: ".revelar_loading_screen",
           start: "top top",      // La animación empieza cuando el section llege al top del navegador (arriba del todo)
-          end: "+=150%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
+          end: "+=80%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
           scrub: 1,              // Hace que la animación se sincronice con el scroll (1 segundo de retraso para suavizar) 
           pin: true,             // Bloquea el section, solo se ejecutan las animaciones dentro de el mientras se va scrolleando
-          markers: false
+          markers: false,
+          pinSpacing: false
         }
       });
 
@@ -94,19 +137,64 @@
     duration: 0.8
   });
 
-  // Animaciones de las imagenes laterales
-  tl.to("#imagen-izquierda", {
+  // Desaparecer el loading screen
+  tl.to(".revelar_loading_screen", {  opacity: 0, scale: 0.95, duration: 1 });
+
+
+  // Linea de tiempo para la aldea
+      const tlAldea = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".pantalla2",
+          start: "top top",      // La animación empieza cuando el section llege al top del navegador (arriba del todo)
+          end: "+=150%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
+          scrub: 1,              // Hace que la animación se sincronice con el scroll (1 segundo de retraso para suavizar) 
+          pin: true,             // Bloquea el section, solo se ejecutan las animaciones dentro de el mientras se va scrolleando
+          markers: false
+        }
+      });
+
+  // Animacion para revelar la imagen
+  tlAldea.from("#aldea", {
+    opacity: 0,
+    duration: 3,
+  });
+
+    // Animaciones de las imagenes laterales
+  tlAldea.to("#imagen-izquierda", {
     opacity: 1,
     x: 20,
     duration: 0.8
   });
 
-  tl.to("#imagen-derecha", {
+  tlAldea.to("#imagen-derecha", {
     opacity: 1,
     x: -20,
     duration: 0.8
   });
 
+ // Frase 1: bárbaro
+tlAldea.set("#texto-barbaro", { innerText: conversaciones[0].texto }); // carga el texto 1 del array de conversaciones
+tlAldea.to("#bocadillo-barbaro", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" }); // hago aparecer el bocadillo del bárbaro
+tlAldea.to({}, { duration: 2 }); // Pausa para leer el texto
+tlAldea.to("#bocadillo-barbaro", { opacity: 0, scale: 0, duration: 2 }); // una vez leido el texto, hago desaparecer el bocadillo del bárbaro
+
+// Frase 2: arquera
+tlAldea.set("#texto-arquera", { innerText: conversaciones[1].texto }); 
+tlAldea.to("#bocadillo-arquera", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlAldea.to({}, { duration: 2 });
+tlAldea.to("#bocadillo-arquera", { opacity: 0, scale: 0, duration: 2 });
+
+// Frase 3: bárbaro
+tlAldea.set("#texto-barbaro", { innerText: conversaciones[2].texto });
+tlAldea.to("#bocadillo-barbaro", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlAldea.to({}, { duration: 2 });
+tlAldea.to("#bocadillo-barbaro", { opacity: 0, scale: 0, duration: 2 });
+
+// Frase 4: arquera
+tlAldea.set("#texto-arquera", { innerText: conversaciones[3].texto });
+tlAldea.to("#bocadillo-arquera", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlAldea.to({}, { duration: 2 });
+tlAldea.to("#bocadillo-arquera", { opacity: 0, scale: 0, duration: 2 });
 </script>
 
   </body>
