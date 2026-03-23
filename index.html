@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>guerra_coc</title>
-    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-BKF9b-tE.css">
+    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-nibxiRt9.css">
   </head>
 
   <body class="bg-black">
@@ -53,7 +53,11 @@
           <img class="w-full h-full object-cover" src="/guerra_coc/assets/aldea-DSoGcplf.jpeg" alt="aldea">
       </div>
 
-              <!-- IMAGEN BARBARO IZQUIERDA -->
+        <!-- OSCURECER FONDO -->
+        <div id="overlay-oscuro" class="absolute inset-0 bg-black opacity-0 pointer-events-none">
+        </div>
+
+        <!-- IMAGEN BARBARO IZQUIERDA -->
         <div id="imagen-izquierda" class="absolute bottom-0 left-8 opacity-0">
           <img src="/guerra_coc/assets/barbaro-CvbyBoLU.png" class="h-112.5 object-contain">
         </div>
@@ -76,15 +80,70 @@
           <div class="absolute -bottom-4 right-6 w-0 h-0 border-l-15 border-l-transparent border-r-15 border-r-transparent border-t-20 border-t-pink-500"></div>
         </div>
 
+        <!-- DRAGON ELECTRICO -->
+        <div id="dragon-electrico" class="absolute inset-0 flex items-center justify-center opacity-0">
+          <img src="/guerra_coc/assets/dragon_electrico-C9FVo-KI.png" class="h-137.5 object-contain">        
+        </div>
+
+        <!-- IMAGEN MEJORA IZQUIERDA -->
+        <div id="mejora-izquierda" class="absolute left-1/3 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0">
+          <img src="/guerra_coc/assets/mejora1-CEOvkiiI.png" class="h-55 object-contain">
+        </div>
+
+        <!-- IMAGEN MEJORA CENTRO -->
+        <div id="mejora-centro" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0">
+          <img src="/guerra_coc/assets/mejora2-Cn-AlNDE.png" class="h-55 object-contain">
+        </div>
+
+        <!-- IMAGEN MEJORA DERECHA -->
+        <div id="mejora-derecha" class="absolute left-2/3 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0">
+          <img src="/guerra_coc/assets/mejora3-DydbK-zE.png" class="h-55 object-contain">
+        </div>
+
     </section>
 
-   <script>
+    <section class="guerra_screen_1 flex h-screen m-0 relative">
+
+      <div class="w-full h-full z-0" id="guerra">
+        <img class="w-full h-full object-cover" src="/guerra_coc/assets/guerra_screen_1-BmwHo6Pv.jpg" alt="guerra">
+      </div>
+
+      <!-- IMAGEN BARBARO IZQUIERDA -->
+      <div id="imagen-izquierda-guerra" class="absolute bottom-0 left-8 opacity-100 z-10">
+        <img src="/guerra_coc/assets/barbaro-CvbyBoLU.png" class="h-112.5 object-contain">
+      </div>
+
+      <!-- IMAGEN ARQUERA DERECHA -->
+      <div id="imagen-derecha-guerra" class="absolute bottom-0 right-8 opacity-100 z-10">
+        <img src="/guerra_coc/assets/arquera-Dky00ue9.png" class="h-112.5 object-contain">
+      </div>
+
+      <!-- BOCADILLO BARBARO -->
+      <div id="bocadillo-barbaro-guerra" class="absolute bottom-120 left-24 opacity-0 scale-0 bg-white text-black p-4 rounded-2xl border-4 border-blue-500 max-w-xs shadow-xl z-20">
+        <p id="texto-barbaro-guerra" class="font-bold text-lg"></p>
+        <div class="absolute -bottom-4 left-6 w-0 h-0 border-l-15 border-l-transparent border-r-15 border-r-transparent border-t-20 border-t-blue-500"></div>
+      </div>
+
+      <!-- BOCADILLO ARQUERA -->
+      <div id="bocadillo-arquera-guerra" class="absolute bottom-120 right-24 opacity-0 scale-0 bg-white text-black p-4 rounded-2xl border-4 border-pink-500 max-w-xs shadow-xl z-20">
+        <p id="texto-arquera-guerra" class="font-bold text-lg"></p>
+        <div class="absolute -bottom-4 right-6 w-0 h-0 border-l-15 border-l-transparent border-r-15 border-r-transparent border-t-20 border-t-pink-500"></div>
+      </div>
+
+      <!-- FLECHA SEÑALANDO ALDEA -->
+      <div id="flecha-aldea" class="absolute top-[45%] left-[55%] opacity-0 z-30">
+        <img src="/guerra_coc/assets/flecha_roja-DdJWq2TX.png" class="h-20 object-contain">
+      </div>
+
+    </section>
+
+    <script>
       
       // Array de conversaciones
       const conversaciones = [
         {
           personaje: "barbaro",
-          texto: "¡Mira que aldea mas horrible!, hay que enseñar a Dino64 a cómo jugar"
+          texto: "¡Mira que aldea mas horrible!, hay que enseñar a Dino64 a cómo jugar."
         },
         {
           personaje: "arquera",
@@ -96,10 +155,49 @@
         },
         {
           personaje: "arquera",
-          texto: "El ejército más recomendado es jugar full dragones eléctricos"
+          texto: "El ejército más recomendado es jugar full dragones eléctricos."
+        },
+        {
+          personaje: "barbaro",
+          texto: "Esto es el dragón eléctrico."
+        },
+        {
+          personaje: "arquera",
+          texto: "¡Es algo que seguro no usaría Dino64!"
+        },
+        {
+          personaje: "barbaro",
+          texto: "Luego, lo más recomendable para poder hacer los mejores ataques es mejorar esto..."
+        },
+        {
+          personaje: "arquera",
+          texto: "Mejorando estas 3 cosas, podrás tener más ejercito."
+        },
+        {
+          personaje: "barbaro",
+          texto: "Una vez dicho esto, vamos a ver como atacar en la guerra."
+        },
+        {
+          personaje: "arquera",
+          texto: "Esta es la pantalla de la guerra de clanes."
+        },
+        {
+          personaje: "barbaro",
+          texto: "Como se puede ver, ya han reventado la aldea de Dino64."
+        },
+        {
+          personaje: "arquera",
+          texto: "Ninguna novedad, la verdad."
+        },
+        {
+          personaje: "barbaro",
+          texto: "Bueno, en esta pantalla se puede ver a nuestro clan."
+        },
+        {
+          personaje: "arquera",
+          texto: "Aquí no hay mucho más que hacer, vamos a ver al clan enemigo..."
         }
       ]
-
 
       // Libreria de scroll
       gsap.registerPlugin(ScrollTrigger);
@@ -159,7 +257,7 @@
     duration: 3,
   });
 
-    // Animaciones de las imagenes laterales
+  // Animaciones de las imagenes laterales
   tlAldea.to("#imagen-izquierda", {
     opacity: 1,
     x: 20,
@@ -195,6 +293,155 @@ tlAldea.set("#texto-arquera", { innerText: conversaciones[3].texto });
 tlAldea.to("#bocadillo-arquera", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
 tlAldea.to({}, { duration: 2 });
 tlAldea.to("#bocadillo-arquera", { opacity: 0, scale: 0, duration: 2 });
+
+// Frase 5: bárbaro
+tlAldea.set("#texto-barbaro", { innerText: conversaciones[4].texto });
+tlAldea.to("#bocadillo-barbaro", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+
+// Se oscurece el fondo
+tlAldea.to("#overlay-oscuro", {
+  opacity: 0.6,
+  duration: 3
+}, "<");
+
+// Aparece el dragón eléctrico en el centro
+tlAldea.to("#dragon-electrico", {
+  opacity: 1,
+  duration: 2
+}, "<");
+
+tlAldea.to({}, { duration: 2 });
+tlAldea.to("#bocadillo-barbaro", { opacity: 0, scale: 0, duration: 2 });
+
+// Frase 6: arquera
+tlAldea.set("#texto-arquera", { innerText: conversaciones[5].texto });
+tlAldea.to("#bocadillo-arquera", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlAldea.to({}, { duration: 2 });
+tlAldea.to("#bocadillo-arquera", { opacity: 0, scale: 0, duration: 2 });
+
+// Frase 7: bárbaro
+tlAldea.set("#texto-barbaro", { innerText: conversaciones[6].texto });
+tlAldea.to("#bocadillo-barbaro", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlAldea.to({}, { duration: 2 });
+tlAldea.to("#bocadillo-barbaro", { opacity: 0, scale: 0, duration: 2 });
+
+// Desaparece el dragón eléctrico
+tlAldea.to("#dragon-electrico", {
+  opacity: 0,
+  duration: 2
+});
+
+// Aparecen las 3 imágenes de mejoras
+tlAldea.to("#mejora-izquierda", {
+  opacity: 1,
+  duration: 1.5
+});
+
+tlAldea.to("#mejora-centro", {
+  opacity: 1,
+  duration: 1.5
+}, "<");
+
+tlAldea.to("#mejora-derecha", {
+  opacity: 1,
+  duration: 1.5
+}, "<");
+
+// Frase 8: arquera
+tlAldea.set("#texto-arquera", { innerText: conversaciones[7].texto });
+tlAldea.to("#bocadillo-arquera", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlAldea.to({}, { duration: 2 });
+tlAldea.to("#bocadillo-arquera", { opacity: 0, scale: 0, duration: 2 });
+
+// El fondo vuelve a estar como antes
+tlAldea.to("#overlay-oscuro", {
+  opacity: 0,
+  duration: 2
+}, "<");
+
+// Frase 9: bárbaro (transición final)
+tlAldea.set("#texto-barbaro", { innerText: conversaciones[8].texto });
+tlAldea.to("#bocadillo-barbaro", { 
+  opacity: 1, 
+  scale: 1, 
+  duration: 2, 
+  ease: "back.out(1.7)" 
+});
+
+tlAldea.to({}, { duration: 2 });
+
+// Desaparece el bocadillo
+tlAldea.to("#bocadillo-barbaro", { 
+  opacity: 0, 
+  scale: 0, 
+  duration: 2 
+});
+
+// Transición a la siguiente pantalla
+tlAldea.to(".pantalla2", {
+  opacity: 0,
+  scale: 0.95,
+  duration: 1.5
+});
+
+// Linea de tiempo para la pantalla de guerra
+const tlGuerra = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".guerra_screen_1",
+    start: "top top",
+    end: "+=150%",
+    scrub: 1,
+    pin: true,
+    markers: false
+  }
+});
+
+// Animacion para revelar la imagen
+tlGuerra.from("#guerra", {
+  opacity: 0,
+  duration: 2
+});
+
+// Frase 1: arquera
+tlGuerra.set("#texto-arquera-guerra", { innerText: conversaciones[9].texto });
+tlGuerra.to("#bocadillo-arquera-guerra", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlGuerra.to({}, { duration: 2 });
+tlGuerra.to("#bocadillo-arquera-guerra", { opacity: 0, scale: 0, duration: 2 });
+
+// Aparece la flecha señalando la aldea
+tlGuerra.fromTo("#flecha-aldea",
+  { opacity: 0, scale: 0.5 },
+  { opacity: 1, scale: 1, duration: 1.5, ease: "back.out(1.7)" }, "<");
+
+// Frase 2: bárbaro
+tlGuerra.set("#texto-barbaro-guerra", { innerText: conversaciones[10].texto });
+tlGuerra.to("#bocadillo-barbaro-guerra", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlGuerra.to({}, { duration: 2 });
+tlGuerra.to("#bocadillo-barbaro-guerra", { opacity: 0, scale: 0, duration: 2 });
+
+// Frase 3: arquera
+tlGuerra.set("#texto-arquera-guerra", { innerText: conversaciones[11].texto });
+tlGuerra.to("#bocadillo-arquera-guerra", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlGuerra.to({}, { duration: 2 });
+tlGuerra.to("#bocadillo-arquera-guerra", { opacity: 0, scale: 0, duration: 2 });
+
+// Desaparece la flecha
+tlGuerra.to("#flecha-aldea", {
+  opacity: 0,
+  duration: 1
+});
+
+// Frase 4: bárbaro
+tlGuerra.set("#texto-barbaro-guerra", { innerText: conversaciones[12].texto });
+tlGuerra.to("#bocadillo-barbaro-guerra", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlGuerra.to({}, { duration: 2 });
+tlGuerra.to("#bocadillo-barbaro-guerra", { opacity: 0, scale: 0, duration: 2 });
+
+// Frase 5: arquera
+tlGuerra.set("#texto-arquera-guerra", { innerText: conversaciones[13].texto });
+tlGuerra.to("#bocadillo-arquera-guerra", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.7)" });
+tlGuerra.to({}, { duration: 2 });
+tlGuerra.to("#bocadillo-arquera-guerra", { opacity: 0, scale: 0, duration: 2 });
 </script>
 
   </body>
