@@ -21,78 +21,80 @@ function cargarConversacion(tl, i) {
   tl.to(bocadillo, { opacity: 0, scale: 0, duration: 10 }); // una vez leido el texto, hago desaparecer el bocadillo del bárbaro
 }
 
-
 // Libreria de scroll
-      gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
-      // Linea de tiempo para el loading screen
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".revelar_loading_screen",
-          start: "top top",      // La animación empieza cuando el section llege al top del navegador (arriba del todo)
-          end: "+=80%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
-          scrub: 1,              // Hace que la animación se sincronice con el scroll (1 segundo de retraso para suavizar) 
-          pin: true,             // Bloquea el section, solo se ejecutan las animaciones dentro de el mientras se va scrolleando
-          markers: false,
-          pinSpacing: false
-        }
-      });
+// ---PANTALLA 1---
 
-  // Animacion para revelar la imagen
-  tl.from("#revelar_loading_screen", {
-    opacity: 0,
-    duration: 1
-  });
+// Linea de tiempo para el loading screen
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".revelar_loading_screen",
+    start: "top top",      // La animación empieza cuando el section llege al top del navegador (arriba del todo)
+    end: "+=80%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
+    scrub: 1,              // Hace que la animación se sincronice con el scroll (1 segundo de retraso para suavizar) 
+    pin: true,             // Bloquea el section, solo se ejecutan las animaciones dentro de el mientras se va scrolleando
+    markers: false,
+    pinSpacing: false
+  }
+});
 
-  // Animacion para mostrar la caja de texto
-  tl.to("#caja1 p", {
-    opacity: 1,
-    y: -20, // Sube un poquito
-    duration: 1
-  }); 
+// Animacion para revelar la imagen
+tl.from("#revelar_loading_screen", {
+  opacity: 0,
+  duration: 1
+});
 
-  // Animacion de nuestros nombres
-  tl.to("#autores", {
-    opacity: 1,
-    y: -10,
-    duration: 0.8
-  });
+// Animacion para mostrar la caja de texto
+tl.to("#caja1 p", {
+  opacity: 1,
+  y: -20, // Sube un poquito
+  duration: 1
+}); 
 
-  // Desaparecer el loading screen
-  tl.to(".revelar_loading_screen", {  opacity: 0, scale: 0.95, duration: 1 });
+// Animacion de nuestros nombres
+tl.to("#autores", {
+  opacity: 1,
+  y: -10,
+  duration: 0.8
+});
 
+// Desaparecer el loading screen
+tl.to(".revelar_loading_screen", {  opacity: 0, scale: 0.95, duration: 1 });
 
-  // Linea de tiempo para la aldea
-      const tlAldea = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".pantalla2",
-          start: "top top",      // La animación empieza cuando el section llege al top del navegador (arriba del todo)
-          end: "+=500%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
-          scrub: 1,              // Hace que la animación se sincronice con el scroll (1 segundo de retraso para suavizar) 
-          pin: true,             // Bloquea el section, solo se ejecutan las animaciones dentro de el mientras se va scrolleando
-          markers: false
-        }
-      });
+// ---PANTALLA 2---
 
-  // Animacion para revelar la imagen
-  tlAldea.from("#aldea", {
-    opacity: 0,
-    duration: 20,
-  });
+// Linea de tiempo para la aldea
+const tlAldea = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".pantalla2",
+    start: "top top",      // La animación empieza cuando el section llege al top del navegador (arriba del todo)
+    end: "+=500%",         // Distancia que hay que scrollear para que termine la animación (altura del section a 150%)
+    scrub: 1,              // Hace que la animación se sincronice con el scroll (1 segundo de retraso para suavizar) 
+    pin: true,             // Bloquea el section, solo se ejecutan las animaciones dentro de el mientras se va scrolleando
+    markers: false
+  }
+});
 
-  // Aparecer el barbaro
-  tlAldea.to("#barbaro", {
-    opacity: 1,
-    x: 20,
-    duration: 10
-  });
+// Animacion para revelar la imagen
+tlAldea.from("#aldea", {
+  opacity: 0,
+  duration: 20,
+});
 
-  // Aparecer la arquera
-  tlAldea.to("#arquera", {
-    opacity: 1,
-    x: -20,
-    duration: 10
-  });
+// Aparecer el barbaro
+tlAldea.to("#barbaro", {
+  opacity: 1,
+  x: 20,
+  duration: 10
+});
+
+// Aparecer la arquera
+tlAldea.to("#arquera", {
+  opacity: 1,
+  x: -20,
+  duration: 10
+});
 
  // Frase 1: bárbaro
 cargarConversacion(tlAldea, 0); // cargo la primera conversacion del array de conversaciones (bárbaro) y así sucesivamente con el resto de conversaciones
@@ -167,16 +169,16 @@ tlAldea.to("#mejora-derecha", {
 }, "<");
 
 // Desaparece el barbaro
-  tlAldea.to("#barbaro", {
-    opacity: 0,
-    duration: 10
-  });
+tlAldea.to("#barbaro", {
+  opacity: 0,
+  duration: 10
+});
 
-  // Desaparece la arquera
-  tlAldea.to("#arquera", {
-    opacity: 0,
-    duration: 10
-  });
+// Desaparece la arquera
+tlAldea.to("#arquera", {
+  opacity: 0,
+  duration: 10
+});
 
 // Transición a la siguiente pantalla
 tlAldea.to(".pantalla2", {
@@ -184,6 +186,8 @@ tlAldea.to(".pantalla2", {
   scale: 0.95,
   duration: 10
 });
+
+// ---PANTALLA 3---
 
 // Linea de tiempo para la pantalla1 de guerra
 const tlGuerra = gsap.timeline({
@@ -203,20 +207,19 @@ tlGuerra.from("#guerra", {
   duration: 20
 });
 
-  // Aparecer el barbaro
-  tlGuerra.to("#barbaro", {
-    opacity: 1,
-    x: 20,
-    duration: 10
-  });
+// Aparecer el barbaro
+tlGuerra.to("#barbaro", {
+  opacity: 1,
+  x: 20,
+  duration: 10
+});
 
-  // Aparecer la arquera
-  tlGuerra.to("#arquera", {
-    opacity: 1,
-    x: -20,
-    duration: 10
-  });
-
+// Aparecer la arquera
+tlGuerra.to("#arquera", {
+  opacity: 1,
+  x: -20,
+  duration: 10
+});
 
 cargarConversacion(tlGuerra, 9); // Frase 10: arquera
 
@@ -239,16 +242,16 @@ cargarConversacion(tlGuerra, 13); // Frase 14: arquera
 cargarConversacion(tlGuerra, 14); // Frase 15: arquera
 
 // Desaparece el barbaro
-  tlGuerra.to("#barbaro", {
-    opacity: 0,
-    duration: 10
-  });
+tlGuerra.to("#barbaro", {
+  opacity: 0,
+  duration: 10
+});
 
-  // Desaparece la arquera
-  tlGuerra.to("#arquera", {
-    opacity: 0,
-    duration: 10
-  });
+// Desaparece la arquera
+tlGuerra.to("#arquera", {
+  opacity: 0,
+  duration: 10
+});
 
 // Transición a la siguiente pantalla
 tlGuerra.to(".guerra_screen_1", {
@@ -257,7 +260,9 @@ tlGuerra.to(".guerra_screen_1", {
   duration: 10
 });
 
-// Linea de tiempo para la pantalla1 de guerra
+// ---PANTALLA 4---
+
+// Linea de tiempo para la Pantalla 2 de guerra
 const tlGuerra2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".guerra_screen_2",
@@ -275,63 +280,66 @@ tlGuerra2.from("#guerra2", {
   duration: 10
 });
 
-  // Aparecer el barbaro
-  tlGuerra2.to("#barbaro", {
-    opacity: 1,
-    x: 20,
-    duration: 10
-  });
+// Aparecer el barbaro
+tlGuerra2.to("#barbaro", {
+  opacity: 1,
+  x: 20,
+  duration: 10
+});
 
-  // Aparecer la arquera
-  tlGuerra2.to("#arquera", {
-    opacity: 1,
-    x: -20,
-    duration: 10
-  });
+// Aparecer la arquera
+tlGuerra2.to("#arquera", {
+  opacity: 1,
+  x: -20,
+  duration: 10
+});
 
-  cargarConversacion(tlGuerra2, 15) // Frase 16: bárbaro
+cargarConversacion(tlGuerra2, 15) // Frase 16: bárbaro
 
-  // Aparece la flecha señalando la aldea rival
+// Aparece la flecha señalando la aldea rival
 tlGuerra2.fromTo("#flecha-aldea",
   { opacity: 0, scale: 0.5 },
   { opacity: 1, scale: 1, duration: 10, ease: "back.out(1.7)" }, "<");
 
-  cargarConversacion(tlGuerra2, 16) // Frase 17: arquera
-  cargarConversacion(tlGuerra2, 17) // Frase 18: bárbaro
+cargarConversacion(tlGuerra2, 16) // Frase 17: arquera
+cargarConversacion(tlGuerra2, 17) // Frase 18: bárbaro
 
-  // Desaparece la flecha
+// Desaparece la flecha
 tlGuerra2.to("#flecha-aldea", {
   opacity: 0,
   duration: 10
 });
-  cargarConversacion(tlGuerra2, 18) // Frase 19: arquera
-  cargarConversacion(tlGuerra2, 19) // Frase 20: barbaro
 
-  // Desaparece el barbaro
-  tlGuerra2.to("#barbaro", {
-    opacity: 0,
-    duration: 10
-  });
+cargarConversacion(tlGuerra2, 18) // Frase 19: arquera
+cargarConversacion(tlGuerra2, 19) // Frase 20: barbaro
 
-  // Desaparece la arquera
-  tlGuerra2.to("#arquera", {
-    opacity: 0,
-    duration: 10
-  });
+// Desaparece el barbaro
+tlGuerra2.to("#barbaro", {
+  opacity: 0,
+  duration: 10
+});
 
-  // Transición a la siguiente pantalla
+// Desaparece la arquera
+tlGuerra2.to("#arquera", {
+  opacity: 0,
+  duration: 10
+});
+
+// Transición a la siguiente pantalla
 tlGuerra2.to(".guerra_screen_2", {
   opacity: 0,
   scale: 0.95,
   duration: 10
 });
 
+// ---PANTALLA 5---
+
 // Linea de tiempo para la pantalla1 de guerra
 const tlFormaciones = gsap.timeline({
   scrollTrigger: {
     trigger: ".formaciones",
     start: "top top",
-    end: "+=150%",
+    end: "+=200%",
     scrub: 1,
     pin: true,
     markers: false
@@ -344,16 +352,179 @@ tlFormaciones.from("#formaciones", {
   duration: 10
 });
 
-  // Aparecer el barbaro
-  tlFormaciones.to("#barbaro", {
-    opacity: 1,
-    x: 20,
-    duration: 10
-  });
+// Aparecer el barbaro
+tlFormaciones.to("#barbaro", {
+  opacity: 1,
+  x: 20,
+  duration: 10
+});
 
-  // Aparecer la arquera
-  tlFormaciones.to("#arquera", {
-    opacity: 1,
-    x: -20,
-    duration: 10
-  });
+// Aparecer la arquera
+tlFormaciones.to("#arquera", {
+  opacity: 1,
+  x: -20,
+  duration: 10
+});
+
+cargarConversacion(tlFormaciones, 20) // Frase 21: arquera
+
+// Se oscurece el fondo
+tlFormaciones.to("#overlay-oscuro", {
+  opacity: 0.6,
+  duration: 3
+}, "<");
+
+tlFormaciones.to("#bruja-izquierda", {
+  duration: 40,
+  rotation: 360,
+  opacity: 1,
+  delay: 0.5,
+  stagger: 3,
+  ease: "sine.out"
+});
+
+tlFormaciones.to("#gigante-derecha", {
+  duration: 40,
+  rotation: 360,
+  opacity: 1,
+  delay: 0.5,
+  stagger: 3,
+  ease: "sine.out"
+});
+
+cargarConversacion(tlFormaciones, 21) // Frase 22: bárbaro
+
+// Desaparecen las 2 imágenes de bruja/gigante
+tlFormaciones.to("#bruja-izquierda", {
+  opacity: 0,
+  duration: 10
+});
+
+tlFormaciones.to("#gigante-derecha", {
+  opacity: 0,
+  duration: 10
+}, "<");
+
+// Aparece la curandera
+tlFormaciones.to("#curandera", {
+  duration: 40,
+  rotation: -360,
+  opacity: 1,
+  delay: 0.5,
+  stagger: 10,
+  ease: "sine.out"
+});
+
+cargarConversacion(tlFormaciones, 22) // Frase 23: arquera
+
+// Desaparece la Curandera
+tlFormaciones.to("#curandera", {
+  opacity: 0,
+  duration: 10
+}, "<");
+
+// Aparece la imagen de Bob Esponja
+tlFormaciones.to("#bob_esponja", {
+opacity: 1,
+duration: 20,
+ease: "bounce.out",
+y: -100
+});
+
+cargarConversacion(tlFormaciones, 23) // Frase 24: bárbaro
+
+// Desaparece Bob Esponja
+tlFormaciones.to("#bob_esponja", {
+  opacity: 0,
+  duration: 10
+}, "<");
+
+
+// Aparece el hechizo de hielo en el centro
+tlFormaciones.to("#hielo", {
+  opacity: 1,
+  duration: 20
+}, "<");
+
+cargarConversacion(tlFormaciones, 24) // Frase 25: arquera
+
+// Desaparece el hechizo de hielo en el centro
+tlFormaciones.to("#hielo", {
+  opacity: 0,
+  duration: 20
+}, "<");
+
+// El fondo vuelve a estar como antes
+tlFormaciones.to("#overlay-oscuro", {
+  opacity: 0,
+  duration: 2
+}, "<");
+
+cargarConversacion(tlFormaciones, 25) // Frase 26: bárbaro
+
+// Desaparece el barbaro
+tlFormaciones.to("#barbaro", {
+  opacity: 0,
+  duration: 10
+});
+
+// Desaparece la arquera
+tlFormaciones.to("#arquera", {
+  opacity: 0,
+  duration: 10
+});
+
+// Transición a la siguiente pantalla
+tlFormaciones.to(".formaciones", {
+  opacity: 0,
+  scale: 0.95,
+  duration: 10
+});
+
+// ---PANTALLA 6---
+
+// Linea de tiempo para la pantalla final
+const tlFinal = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".revelar_final",
+    start: "top top",
+    end: "+=80%",
+    scrub: 1,
+    pin: true,
+    markers: false
+  }
+});
+
+// Animacion para revelar la imagen
+tlFinal.from("#final", {
+  opacity: 0,
+  duration: 20
+});
+
+// Se oscurece el fondo
+tlFormaciones.to("#overlay-oscuro", {
+  opacity: 0.6,
+  duration: 3
+}, "<");
+
+// Animacion para mostrar la caja de texto
+tlFinal.to("#caja_final p", {
+  opacity: 1,
+  y: -20, // Sube un poquito
+  duration: 1
+}); 
+
+// Animacion del texto final
+tlFinal.to("#texto_final", {
+  opacity: 1,
+  y: -10,
+  duration: 0.8
+});
+
+// Aparece la imagen final
+tlFinal.to("#imagen_final", {
+  opacity: 1,
+  duration: 80,
+  ease: "elastic.out(2,0.3)",
+  y: -100
+});

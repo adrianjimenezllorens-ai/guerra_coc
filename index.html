@@ -16,13 +16,10 @@
 
   <body class="bg-black">
 
-
     <!-- INICIO -->
      <div class="h-screen flex items-center justify-center bg-slate-800 text-white font-bold">
         <h1 class="text-3xl" >Scrollea para aprender a atacar en Clash of Clans ↓</h1>
      </div>
-
-
 
      <!-- SECCION DE CARGA (PANTALLA 1)-->
      <section class="revelar_loading_screen flex h-screen m-0 relative">
@@ -47,12 +44,10 @@
               <p class="text-white text-2xl font-bold">Adrián Jiménez Llorens</p>
               <p class="text-white text-2xl font-bold">Saúl Martín Voisin</p>
             </div>
-
           </div>
         </div>
 
      </section>
-
 
      <!-- SECCION DE ALDEA (PANTALLA 2)-->
      <section class="pantalla2 flex h-screen m-0 relative">
@@ -64,7 +59,6 @@
         <!-- OSCURECER FONDO -->
         <div id="overlay-oscuro" class="absolute inset-0 bg-black opacity-0 pointer-events-none">
         </div>
-
 
         <!-- DRAGON ELECTRICO -->
         <div id="dragon-electrico" class="absolute inset-0 flex items-center justify-center opacity-0">
@@ -88,8 +82,6 @@
 
     </section>
 
-
-
     <!-- SECCION DE GUERRA (PANTALLA 3)-->
     <section class="guerra_screen_1 flex h-screen m-0 relative">
 
@@ -104,9 +96,7 @@
 
     </section>
 
-
-
-        <!-- SECCION DE GUERRA2 (PANTALLA 4)-->
+    <!-- SECCION DE GUERRA2 (PANTALLA 4)-->
     <section class="guerra_screen_2 flex h-screen m-0 relative">
 
       <div class="w-full h-full z-0" id="guerra2">
@@ -127,8 +117,62 @@
         <img class="w-full h-full object-cover" src="public/ejercito.jpeg" alt="formacion de ejercito">
       </div>
 
+      <!-- OSCURECER FONDO -->
+        <div id="overlay-oscuro" class="absolute inset-0 bg-black opacity-0 pointer-events-none">
+      </div>
+
+      <!-- IMAGEN BRUJA IZQUIERDA -->
+      <div id="bruja-izquierda" class="absolute left-1/3 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0">
+        <img src="public/Witch.png" class="h-100 object-contain">
+      </div>
+
+      <!-- IMAGEN GIGANTE DERECHA -->
+      <div id="gigante-derecha" class="absolute left-2/4 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0">
+        <img src="public/Giant.png" class="h-100 object-contain">
+      </div>
+
+      <!-- IMAGEN CURANDERA -->
+      <div id="curandera" class="absolute inset-0 flex items-center justify-center opacity-0">
+        <img src="public/Healer.png" class="h-100 object-contain">
+      </div>
+
+      <!-- IMAGEN BOB ESPONJA -->
+      <div id="bob_esponja" class="absolute -bottom-50 inset-0 flex items-center justify-center opacity-0">
+        <img src="public/bob_esponja.jpg" class="h-100 object-contain">
+      </div>
+
+      <!-- IMAGEN HIELO -->
+      <div id="hielo" class="absolute inset-0 flex items-center justify-center opacity-0">
+        <img src="public/freeze.png" class="h-55 object-contain">
+      </div>
+
     </section>
 
+     <!-- SECCION FINAL - PANTALLA 6 -->
+     <section class="revelar_final flex h-screen m-0 relative">
+
+      <div class="w-full h-full" id="revelar_final">
+        <img class="w-full h-full object-cover" src="public/loading_screen.png" alt="final">
+      </div>
+
+      <!-- OSCURECER FONDO -->
+        <div id="overlay-oscuro" class="absolute inset-0 bg-black opacity-0 pointer-events-none">
+      </div>
+
+      <div id="caja_final" class="absolute flex top-75 left-0 w-full justify-center">
+        <div class="flex flex-col items-center">
+          <div id="texto_final" class="mt-6 text-center opacity-0">
+            <p class="text-white font-semibold text-outline text-7xl">¡Gracias por su atención!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMAGEN MEJORA IZQUIERDA -->
+      <div id="imagen_final" class="absolute left-4/5 top-85 -translate-x-1/2 -translate-y-1/2 opacity-0">
+        <img src="public/imagen_final.jpg" class="h-55 object-contain">
+      </div>
+
+    </section>
 
     <!-- PERSONAJES GLOBALES -->
     <div id="personajes-global" class="fixed inset-0 pointer-events-none z-50">
@@ -143,7 +187,6 @@
           <img src="public/arquera.png" class="h-112.5 object-contain">
         </div>
 
-
         <!-- BOCADILLO BARBARO -->
       <div id="bocadillo-barbaro" class="absolute bottom-120 left-24 opacity-0 scale-0 bg-white text-black p-4 rounded-2xl border-4 border-blue-500 max-w-xs shadow-xl z-20">
         <p id="texto-barbaro" class="font-bold text-lg"></p>
@@ -155,7 +198,6 @@
         <p id="texto-arquera" class="font-bold text-lg"></p>
         <div class="absolute -bottom-4 right-6 w-0 h-0 border-l-15 border-l-transparent border-r-15 border-r-transparent border-t-20 border-t-pink-500"></div>
       </div>
-
     </div>
 
 </body>
