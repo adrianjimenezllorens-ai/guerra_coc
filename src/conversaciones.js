@@ -18,23 +18,23 @@ export const conversaciones = [
     },
     {
         personaje: "barbaro",
-        texto: "Esto es el dragón eléctrico."
+        texto: "¿Este es el dragón eléctrico.?"
     },
     {
         personaje: "arquera",
-        texto: "¡Es algo que seguro no usaría Dino64!"
+        texto: "!Correcto, es algo que seguro no usaría Dino64!"
     },
     {
         personaje: "barbaro",
-        texto: "Luego, lo más recomendable para poder hacer los mejores ataques es mejorar esto..."
+        texto: "¿Para poder hacer los mejores ataques, que debemos mejorar?"
     },
     {
         personaje: "arquera",
-        texto: "Mejorando estas 3 cosas, podrás tener más ejercito."
+        texto: "Mejorando estas tres estructuras, podrás tener más capacidad para tu ejército."
     },
     {
         personaje: "barbaro",
-        texto: "Una vez dicho esto, vamos a ver como atacar en la guerra."
+        texto: "Perfecto, vamos a ver como atacar en la guerra."
     },
     {
         personaje: "arquera",
@@ -54,6 +54,30 @@ export const conversaciones = [
     },
     {
         personaje: "arquera",
-        texto: "Aquí no hay mucho más que hacer, vamos a ver al clan enemigo..."
-    }
+        texto: "Si nos fijamos bien, Dino64 tiene asignado el nº10 en la guerra."
+    },
+    {
+        personaje: "arquera",
+        texto: "Vamos a aprender a atacar en guerra, para ello vamos a hacer una visita al clan enemigo..."
+    },
+    {
+        personaje: "barbaro",
+        texto: "Como podemos ver, los miembros del clan también tienen un número asignado"
+    },
+    {
+        personaje: "arquera",
+        texto: "Exacto, si nos fijamos bien, el rival ❤️SUMAN❤️ tiene asignado el nº10"
+    },
+    {
+        personaje: "barbaro",
+        texto: "Esto quiere decir que es el 'espejo' de Dino64, el rival que debe atacar"
+    },
+    {
+        personaje: "arquera",
+        texto: "Una pena, como en las 12 horas todavía no ha realizado sus ataques, le han robado su espejo, no me sorprende en absoluto"
+    },
+    {
+        personaje: "barbaro",
+        texto: "Bueno, vamos a ver un ejemplo de cual sería la formación idónea del ejército antes de realizar un ataque"
+    },
 ]
