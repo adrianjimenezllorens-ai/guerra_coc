@@ -48,3 +48,54 @@ export function desaparecer_barbaro_arquera(tl) {
     duration: 10
   });
 }
+
+// Funcion para hacer aparecer el fondo oscuro
+export function aparecer_fondo_oscuro(tl) {
+  tl.to("#overlay-oscuro", {
+    opacity: 0.6,
+    duration: 3
+  }, "<");
+}
+
+// Funcion para hacer desaparecer el fondo oscuro
+export function desaparecer_fondo_oscuro(tl) {
+  tl.to("#overlay-oscuro", {
+    opacity: 0,
+    duration: 2
+  }, "<");
+}
+
+// Funcion para revelar la nueva pantalla (imagen)
+export function revelar_pantalla_nueva(tl, idPantalla) {
+
+  // Aparecer la pantalla nueva
+  tl.from(idPantalla, {
+    opacity: 1,
+    scale: 1
+  });
+
+  // Desaparecer las nubes (ya se ha mostrado la nueva pantalla)
+  tl.to("#transicion-nubes", { 
+    opacity: 0, 
+    duration: 8, 
+    ease: "power2.inOut" 
+  });
+}
+
+// Funcion para desaparecer la pantalla (final de la pantalla)
+export function desaparecer_pantalla(tl, idPantalla) {
+
+  // Aparecer las nubes (cambiando de pantalla)
+  tl.to("#transicion-nubes", { 
+    opacity: 1, 
+    duration: 8,
+    ease: "power2.inOut" 
+  });
+
+  // Desaparece la pantalla
+  tl.to(idPantalla, {
+    opacity: 0,
+    scale: 0.95,
+    duration: 0.1
+  });
+}

@@ -1,4 +1,11 @@
-import { cargarConversacion, aparecer_barbaro_arquera, desaparecer_barbaro_arquera } from '../utils.js';
+import { 
+    cargarConversacion, 
+    aparecer_barbaro_arquera, 
+    desaparecer_barbaro_arquera, 
+    aparecer_fondo_oscuro, 
+    desaparecer_fondo_oscuro,
+    revelar_pantalla_nueva,
+    desaparecer_pantalla } from '../utils.js';
 
 // ---PANTALLA 5---
 
@@ -15,21 +22,13 @@ export function pantalla5() {
         }
     });
 
-    // Animacion para revelar la imagen
-    tlFormaciones.from("#formaciones", {
-        opacity: 0,
-        duration: 10
-    });
+    revelar_pantalla_nueva(tlFormaciones, "#formaciones"); // Animacion para revelar la pantalla nueva (imagen)
 
     aparecer_barbaro_arquera(tlFormaciones); // Aparecer el barbaro y la arquera
 
     cargarConversacion(tlFormaciones, 20) // Frase 21: arquera
 
-    // Se oscurece el fondo
-    tlFormaciones.to("#overlay-oscuro", {
-        opacity: 0.6,
-        duration: 3
-    }, "<");
+    aparecer_fondo_oscuro(tlFormaciones); // Se oscurece el fondo
 
     tlFormaciones.to("#bruja-izquierda", {
         duration: 40,
@@ -111,20 +110,11 @@ export function pantalla5() {
         duration: 20
     }, "<");
 
-    // El fondo vuelve a estar como antes
-    tlFormaciones.to("#overlay-oscuro", {
-        opacity: 0,
-        duration: 2
-    }, "<");
+    desaparecer_fondo_oscuro(tlFormaciones);  // El fondo vuelve a estar como antes
 
     cargarConversacion(tlFormaciones, 25) // Frase 26: bárbaro
 
     desaparecer_barbaro_arquera(tlFormaciones); // Desaparecer el barbaro y la arquera
 
-    // Transición a la siguiente pantalla
-    tlFormaciones.to(".formaciones", {
-        opacity: 0,
-        scale: 0.95,
-        duration: 10
-    });
+    desaparecer_pantalla(tlFormaciones, ".formaciones"); // Desaparecer la pantalla de formaciones
 }

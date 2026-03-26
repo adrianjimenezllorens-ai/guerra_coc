@@ -1,4 +1,9 @@
-import { cargarConversacion, aparecer_barbaro_arquera, desaparecer_barbaro_arquera } from '../utils.js';
+import { 
+    cargarConversacion, 
+    aparecer_barbaro_arquera, 
+    desaparecer_barbaro_arquera,
+    revelar_pantalla_nueva,
+    desaparecer_pantalla } from '../utils.js';
 
 // ---PANTALLA 3---
 
@@ -15,11 +20,7 @@ export function pantalla3() {
         }
     });
 
-    // Animacion para revelar la imagen
-    tlGuerra.from("#guerra", {
-        opacity: 0,
-        duration: 20
-    });
+    revelar_pantalla_nueva(tlGuerra, "#guerra"); // Animacion para revelar la pantalla nueva (imagen)
 
     aparecer_barbaro_arquera(tlGuerra); // Aparecer el barbaro y la arquera
 
@@ -45,10 +46,5 @@ export function pantalla3() {
 
     desaparecer_barbaro_arquera(tlGuerra); // Desaparecer el barbaro y la arquera
 
-    // Transición a la siguiente pantalla
-    tlGuerra.to(".guerra_screen_1", {
-        opacity: 0,
-        scale: 0.95,
-        duration: 10
-    });
+    desaparecer_pantalla(tlGuerra, ".guerra_screen_1"); // Desaparecer la pantalla de guerra
 }

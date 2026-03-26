@@ -1,4 +1,11 @@
-import { cargarConversacion, aparecer_barbaro_arquera, desaparecer_barbaro_arquera } from '../utils.js';
+import { 
+    cargarConversacion, 
+    aparecer_barbaro_arquera, 
+    desaparecer_barbaro_arquera, 
+    aparecer_fondo_oscuro, 
+    desaparecer_fondo_oscuro,
+    revelar_pantalla_nueva,
+    desaparecer_pantalla, } from '../utils.js';
 
 // ---PANTALLA 2---
 
@@ -16,11 +23,7 @@ export function pantalla2() {
         }
     });
 
-    // Animacion para revelar la imagen
-    tlAldea.from("#aldea", {
-        opacity: 0,
-        duration: 20,
-    });
+    revelar_pantalla_nueva(tlAldea, "#aldea"); // Animacion para revelar la pantalla nueva (imagen)
 
     aparecer_barbaro_arquera(tlAldea); // Aparecer el barbaro y la arquera
 
@@ -31,11 +34,7 @@ export function pantalla2() {
     cargarConversacion(tlAldea, 3); // Frase 4: arquera
     cargarConversacion(tlAldea, 4); // Frase 5: bárbaro
 
-    // Se oscurece el fondo
-    tlAldea.to("#overlay-oscuro", {
-        opacity: 0.6,
-        duration: 3
-    }, "<");
+    aparecer_fondo_oscuro(tlAldea); // Se oscurece el fondo
 
     // Aparece el dragón eléctrico en el centro
     tlAldea.to("#dragon-electrico", {
@@ -70,11 +69,7 @@ export function pantalla2() {
 
     cargarConversacion(tlAldea, 7); // Frase 8: arquera
 
-    // El fondo vuelve a estar como antes
-    tlAldea.to("#overlay-oscuro", {
-        opacity: 0,
-        duration: 2
-    }, "<");
+    desaparecer_fondo_oscuro(tlAldea); // El fondo vuelve a estar como antes
 
     cargarConversacion(tlAldea, 8); // Frase 9: bárbaro
 
@@ -97,11 +92,6 @@ export function pantalla2() {
     }, "<");
 
     desaparecer_barbaro_arquera(tlAldea);  // Desaparecer el barbaro y la arquera
-
-    // Transición a la siguiente pantalla
-    tlAldea.to(".pantalla2", {
-        opacity: 0,
-        scale: 0.95,
-        duration: 10
-    });
+    
+    desaparecer_pantalla(tlAldea, ".pantalla2"); // Desaparecer la aldea
 }

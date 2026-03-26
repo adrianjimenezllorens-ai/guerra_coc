@@ -1,3 +1,6 @@
+import { revelar_pantalla_nueva, aparecer_fondo_oscuro } from '../utils.js';
+
+
 // ---PANTALLA 6---
 
 export function pantalla6() {
@@ -13,17 +16,9 @@ export function pantalla6() {
         }
     });
 
-    // Animacion para revelar la imagen
-    tlFinal.from("#final", {
-        opacity: 0,
-        duration: 20
-    });
+    revelar_pantalla_nueva(tlFinal, "#revelar_final"); // Animacion para revelar la pantalla nueva (imagen)
 
-    // Se oscurece el fondo
-    tlFormaciones.to("#overlay-oscuro", {
-        opacity: 0.6,
-        duration: 3
-    }, "<");
+    aparecer_fondo_oscuro(tlFinal); // Se oscurece el fondo
 
     // Animacion para mostrar la caja de texto
     tlFinal.to("#caja_final p", {

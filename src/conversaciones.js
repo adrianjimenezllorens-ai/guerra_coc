@@ -3,15 +3,15 @@ export const conversaciones = [
     //Conversaciones pantalla 2
     {
         personaje: "barbaro",
-        texto: "¡Mira que aldea mas horrible!, hay que enseñar a Dino64 a cómo jugar."
+        texto: "¡Mira que aldea más horrible!, hay que enseñar a Dino64 a cómo jugar."
     },
     {
         personaje: "arquera",
-        texto: "Es verdad, para empezar hay que modificar el ejercito."
+        texto: "Es verdad, para empezar hay que modificar el ejército."
     },
     {
         personaje: "barbaro",
-        texto: "¿Pero que ejercito es el más recomendado para atacar?"
+        texto: "¿Pero cual ejército es el más recomendado para atacar?"
     },
     {
         personaje: "arquera",
@@ -65,32 +65,32 @@ export const conversaciones = [
     //Conversaciones pantalla 4
     {
         personaje: "barbaro",
-        texto: "Como podemos ver, los miembros del clan también tienen un número asignado"
+        texto: "Como podemos ver, los miembros del clan rival también tienen un número asignado."
     },
     {
         personaje: "arquera",
-        texto: "Exacto, si nos fijamos bien, el rival ❤️SUMAN❤️ tiene asignado el nº10"
+        texto: "Exacto, si nos fijamos bien, el rival ❤️SUMAN❤️ tiene asignado el nº10."
     },
     {
         personaje: "barbaro",
-        texto: "Esto quiere decir que es el 'espejo' de Dino64, el rival que debe atacar"
+        texto: "Esto quiere decir que es el 'espejo' de Dino64, el rival que debe atacar."
     },
     {
         personaje: "arquera",
-        texto: "Una pena, como en las 12 horas todavía no ha realizado sus ataques, le han robado su espejo, no me sorprende en absoluto"
+        texto: "Una pena, como en las 12 horas todavía no ha realizado sus ataques, le han robado su espejo, no me sorprende en absoluto."
     },
     {
         personaje: "barbaro",
-        texto: "Bueno, vamos a ver un ejemplo de cual sería la formación idónea del ejército antes de realizar un ataque"
+        texto: "Bueno, vamos a ver un ejemplo de cual sería la formación idónea del ejército antes de realizar un ataque."
     },
     //Conversaciones pantalla 5
     {
         personaje: "arquera",
-        texto: "Como ya mencionamos antes, la mejor formación si no quieres calentarte la cabeza es ir con solo dragones eléctricos"
+        texto: "Como ya mencionamos antes, la mejor formación si no quieres calentarte la cabeza es ir con solo dragones eléctricos."
     },
     {
         personaje: "barbaro",
-        texto: "Eso lo explica todo, porque si mal no recuerdo, Dino64 ataca con todo menos con dragones"
+        texto: "Eso lo explica todo, porque si mal no recuerdo, Dino64 ataca con todo menos con dragones."
     },
     {
         personaje: "arquera",
@@ -102,10 +102,10 @@ export const conversaciones = [
     },
     {
         personaje: "arquera",
-        texto: "Luego, con los hechizos, simplemente úsalos para eliminar los cohetes de defensa, no olvidar usar los hielos de forma estratégica"
+        texto: "Luego, con los hechizos, simplemente úsalos para eliminar los cohetes de defensa, no olvidar usar los hielos de forma estratégica."
     },
     {
         personaje: "barbaro",
-        texto: "Y eso sería todo, espero que esta guía haya sido de ayuda"
+        texto: "Y eso sería todo, espero que esta guía haya sido de ayuda."
     },
 ]
