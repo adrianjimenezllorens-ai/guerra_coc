@@ -10,32 +10,32 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>guerra_coc</title>
-    <script type="module" crossorigin src="/guerra_coc/assets/index-H9YnfokP.js"></script>
-    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-BhvIHHzE.css">
+    <script type="module" crossorigin src="/guerra_coc/assets/index-BSRm6hnq.js"></script>
+    <link rel="stylesheet" crossorigin href="/guerra_coc/assets/index-BpIcMYyp.css">
   </head>
 
   <body class="bg-black">
 
     <!-- INICIO -->
      <div class="h-screen flex items-center justify-center bg-slate-800 text-white font-bold">
-        <h1 class="text-3xl" >Scrollea para aprender a atacar en Clash of Clans ↓</h1>
+        <h1 class="text-3xl" >Scrollea para aprender a atacar en guerras de Clash of Clans ↓</h1>
      </div>
 
      <!-- SECCION DE CARGA (PANTALLA 1)-->
-     <section class="revelar_loading_screen flex h-screen m-0 relative">
+     <section class="loading_screen flex h-screen m-0 relative">
 
-        <div class="w-full h-full" id="revelar_loading_screen">
+        <div class="w-full h-full" id="loading">
           <img class="w-full h-full object-cover" src="/guerra_coc/assets/loading_screen-BGrzZFV4.png" alt="loading screen">
         </div>
 
         <!-- CAJA1 ARRIBA DE IMAGEN -->
         <div id="caja1" class="absolute flex top-10 left-0 w-full justify-center">
           
-          <!-- Añadí un contenedor para meter el título y los autores -->
+          <!-- CONTENEDOR PARA TITULO Y AUTORES -->
           <div class="flex flex-col items-center">
 
             <p class="text-white text-4xl font-bold opacity-0 border-2 border-yellow-500 p-6 rounded-lg">
-              Como atacar en las guerras de clanes
+              Cómo atacar en las guerras de clanes
             </p>
 
             <!-- NUESTROS NOMBRES -->
@@ -175,7 +175,7 @@
     </section>
 
     <!-- PERSONAJES GLOBALES -->
-    <div id="personajes-global" class="fixed inset-0 pointer-events-none z-50">
+    <div class="fixed inset-0 pointer-events-none z-50">
 
         <!-- IMAGEN BARBARO IZQUIERDA -->
         <div id="barbaro" class="absolute bottom-0 left-8 opacity-0">
@@ -197,6 +197,10 @@
       <div id="bocadillo-arquera" class="absolute bottom-120 right-24 opacity-0 scale-0 bg-white text-black p-4 rounded-2xl border-4 border-pink-500 max-w-xs shadow-xl z-20">
         <p id="texto-arquera" class="font-bold text-lg"></p>
         <div class="absolute -bottom-4 right-6 w-0 h-0 border-l-15 border-l-transparent border-r-15 border-r-transparent border-t-20 border-t-pink-500"></div>
+      </div>
+
+      <div id="transicion-nubes" class="fixed inset-0 z-100 pointer-events-none flex items-center justify-center opacity-0">
+        <img src="/guerra_coc/assets/clouds-CXmpxrOw.png" class="w-full h-full object-cover" alt="nubes">
       </div>
     </div>
 
